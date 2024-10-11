@@ -1,0 +1,10 @@
+<div class="download-csv">
+  <h2>Download CSV</h2>
+
+  <!-- Form to Download CSV file -->
+  <form (ngSubmit)="onDownloadCsv()">
+    <input type="text" name="file_name" [(ngModel)]="fileName" required />
+
+    <button type="submit" [disabled]="!fileName">Download as CSV</button>
+  </form>
+</div>

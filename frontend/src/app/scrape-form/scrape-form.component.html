@@ -1,0 +1,40 @@
+<div class="scrape-form">
+  <h2>Scrape Google Map Reviews</h2>
+
+  <!-- Form for URL Input -->
+  <form (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Google Map URL"
+      [(ngModel)]="googleMapUrl"
+      ngModel
+      pattern="^https?:\/\/(www\.)?google\.[a-z]{2,3}(\.[a-z]{2})?\/maps\/place\/([^\/]+)\/(@[\d,.\w]+)\/(data\=[!:.%\w]+\?)(entry\=[\w&=%]+)$"
+      #urlInput="ngModel"
+      name="googleMapUrl"
+      required
+    />
+    <!--TODO: when url is invalid, notify user-->
+    <button
+      type="submit"
+      [disabled]="!googleMapUrl || isScraping || urlInput.invalid"
+    >
+      Start Scraping
+    </button>
+  </form>
+
+  <div class="result-container">
+    <!-- Loading Indicator -->
+    <div *ngIf="isScraping">
+      <p>Currently Scraping... Please wait.</p>
+    </div>
+
+    <!-- Display the Scrape Result -->
+    <div *ngIf="scrapeResult && !isScraping">
+      <h3>Scraped Data:</h3>
+      <p>Place Name: {{ scrapeResult.location_name }}</p>
+      <p>File Name: {{ scrapeResult.default_file_name }}</p>
+      <p>Number of reviews scraped: {{ scrapeResult.reviews_count }}</p>
+      <p>{{ scrapeResult.message }}</p>
+    </div>
+  </div>
+</div>

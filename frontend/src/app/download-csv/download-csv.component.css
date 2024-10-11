@@ -1,0 +1,36 @@
+.download-csv {
+    margin: 20px;
+  }
+  
+.download-csv h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.download-csv form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.download-csv input {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.download-csv button {
+  padding: 10px;
+  font-size: 1em;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-csv button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}

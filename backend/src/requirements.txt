@@ -1,0 +1,7 @@
+selenium
+pandas
+beautifulsoup4
+flask
+flask-cors
+psycopg2-binary 
+SQLAlchemy 
