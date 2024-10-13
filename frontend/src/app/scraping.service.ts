@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScrapeResult } from './scrape-result';
 
+// this is scraping service
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +15,7 @@ export class ScrapingService {
   // Function to send the Google Map URL to Flask
   scrapeGoogleMap(url: string): Observable<ScrapeResult> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = { googleMapUrl: encodeURIComponent(url) }; // Prepare data to send
+    const body = { googleMapUrl: url }; // Prepare data to send
 
     return this.http.post<any>(`${this.apiUrl}/scrape`, body, {
       headers,

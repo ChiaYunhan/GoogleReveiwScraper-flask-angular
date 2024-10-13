@@ -1,18 +1,16 @@
 .scrape-form {
-  margin: 20px;
-  max-width: 600px;
-  background-color: #f9f9f9;
+  max-width: 100%; /* Prevents overriding parent max-width */
+  background-color: #f9f9f9; /* Keep the background if needed */
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
+  padding: 5% 15% 5% 15%;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .scrape-form h2 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
+  text-align: center; /* Keep the heading centered */
 }
 
 .scrape-form form {
@@ -51,8 +49,8 @@
 }
 
 .result-container {
-  margin-top: 20px;
-  padding: 15px;
+  margin-top: 5px;
+  padding: 10px;
   border: 1px solid #28a745;
   border-radius: 8px;
   background-color: #eaf8ea;

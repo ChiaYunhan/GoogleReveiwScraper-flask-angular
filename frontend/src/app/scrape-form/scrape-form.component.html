@@ -13,7 +13,7 @@
       name="googleMapUrl"
       required
     />
-    <!--TODO: when url is invalid, notify user-->
+    <!--TODO: when url is invalid, notify-->
     <button
       type="submit"
       [disabled]="!googleMapUrl || isScraping || urlInput.invalid"
@@ -29,12 +29,12 @@
     </div>
 
     <!-- Display the Scrape Result -->
-    <div *ngIf="scrapeResult && !isScraping">
+    <div *ngIf="!isScraping && scrapeResultData">
       <h3>Scraped Data:</h3>
-      <p>Place Name: {{ scrapeResult.location_name }}</p>
-      <p>File Name: {{ scrapeResult.default_file_name }}</p>
-      <p>Number of reviews scraped: {{ scrapeResult.reviews_count }}</p>
-      <p>{{ scrapeResult.message }}</p>
+      <p>Scrape Success: {{ scrapeResultData.success }}</p>
+      <p>Location Name: {{ scrapeResultData.location_name }}</p>
+      <p>Number of reviews scraped: {{ scrapeResultData.reviews_count }}</p>
+      <p>{{ scrapeResultData.message }}</p>
     </div>
   </div>
 </div>

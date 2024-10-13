@@ -1,11 +1,18 @@
-<!-- Scrape Form: Always visible -->
-<app-scrape-form
-  (scrapeCompleted)="onScrapeCompleted($event)"
-  (resetScrape)="resetScrapeResult()"
-></app-scrape-form>
+<div class="main-container">
+  <div class="scrape-container">
+    <!-- Scrape Form -->
+    <app-scrape-form
+      (scrapeCompleted)="onScrapeCompleted($event)"
+    ></app-scrape-form>
 
-<!-- Download CSV: Visible only when scrapeResult exists -->
-<app-download-csv
-  *ngIf="scrapeResult"
-  [scrapeResult]="scrapeResult"
-></app-download-csv>
+    <!-- Download CSV -->
+    <!---->
+    <app-download-csv
+      *ngIf="scrapeSuccess"
+      [scrapeResult]="scrapeResult"
+    ></app-download-csv>
+  </div>
+
+  <!-- Scrape History -->
+  <app-scrape-history [scrapeResults]="scrapeResults"></app-scrape-history>
+</div>
