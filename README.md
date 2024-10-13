@@ -3,7 +3,7 @@
 
 ## Tech Stack:
 - **Frontend**: Angular.js
-- **Backend**: Flask, selenium
+- **Backend**: Flask, Selenium, BeautifulSoup
 
 ## Description:
 This project is a full-stack learning exercise that demonstrates the creation of a simple web application. The app allows users to input a Google Maps URL of a place, such as the [Grand Canyon](https://www.google.com/maps/place/Grand+Canyon+National+Park/@36.0917136,-113.5024596,9z/data=!4m16!1m9!3m8!1s0x873312ae759b4d15:0x1f38a9bec9912029!2sGrand+Canyon+National+Park!8m2!3d36.2678855!4d-112.3535253!9m1!1b1!16zL20vMGNucnI!3m5!1s0x873312ae759b4d15:0x1f38a9bec9912029!8m2!3d36.2678855!4d-112.3535253!16zL20vMGNucnI?entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D), and retrieve the latest 300-400 reviews. This limit is set to avoid issues like rate-limiting or IP banning by Google.
