@@ -7,4 +7,3 @@ flask-session
 psycopg2-binary 
 SQLAlchemy 
 boto3
-webdriver-manager
