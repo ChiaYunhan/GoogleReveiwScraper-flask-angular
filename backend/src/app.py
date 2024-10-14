@@ -23,7 +23,7 @@ Session(app)
 
 AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
 AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
-S3_BUCKET = os.environ.get("AWS_BUCKET")
+AWS_BUCKET = os.environ.get("AWS_BUCKET")
 
 
 def _upload_s3(location_name: str, scraped_at_date: str, scraped_at_time: str):
@@ -46,7 +46,7 @@ def _upload_s3(location_name: str, scraped_at_date: str, scraped_at_time: str):
 
     try:
         # Upload the file to S3
-        s3_client.upload_fileobj(csv_buffer, S3_BUCKET, object_key)
+        s3_client.upload_fileobj(csv_buffer, AWS_BUCKET, object_key)
         return jsonify(
             {"message": f"File uploaded successfully to S3 as {object_key}."}
         )
@@ -158,7 +158,7 @@ def generate_presigned_url():
     try:
         presigned_url = s3_client.generate_presigned_url(
             "get_object",
-            Params={"Bucket": "aws-etl-news", "Key": object_key},
+            Params={"Bucket": AWS_BUCKET, "Key": object_key},
             ExpiresIn=5,
         )
 
