@@ -28,6 +28,6 @@ Before running the project, make sure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/google-maps-scraping-service.git
+git clone https://github.com/ChiaYunhan/google-maps-scraping-service.git
 cd google-maps-scraping-service
 docker-compose up
