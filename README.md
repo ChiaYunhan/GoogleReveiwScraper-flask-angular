@@ -32,7 +32,7 @@ To avoid triggering Google’s rate limiting or CAPTCHA-based IP bans, this appl
 For a more scalable and reliable approach, consider using APIs like Google Places API for review data, though it comes with stricter usage limits and costs for higher volumes of data.
 
 ## Set up
-###Prerequisites
+### Prerequisites
 - Python: 3.9+
 - Node.js: Latest stable version (for Angular frontend).
 - AWS Credentials
