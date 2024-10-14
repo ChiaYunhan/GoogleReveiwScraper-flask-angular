@@ -13,6 +13,7 @@ services:
     environment:
       FLASK_APP: app
       FLASK_ENV: development
+    env_file: '.env'
     networks:
       - net
 
@@ -28,7 +29,6 @@ services:
       - "4200:4200"  # map container port 4200 to host port 4200
     volumes:
       - ./frontend:/frontend  # bind mount your frontend source code
-    # command: sh -c "npm install && ng serve --host 0.0.0.0"
     networks:
       - net
 

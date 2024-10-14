@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ScrapeResult } from '../scrape-result';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ScrapingService } from '../scraping.service';
 
