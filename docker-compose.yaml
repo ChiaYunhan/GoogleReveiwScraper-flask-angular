@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  # Backend service (Flask)
+  backend:
+    build:
+      context: ./backend  # path to the backend folder
+    shm_size: '1gb'
+    ports:
+      - "5000:5000"  # map container port 5000 to host port 5000
+    volumes:
+      - ./backend:/backend  # bind mount your backend source code for development
+    environment:
+      FLASK_APP: app
+      FLASK_ENV: development
+    networks:
+      - net
+
+  # Frontend service (Angular)
+  frontend:
+    build:
+      context: ./frontend  # path to the frontend folder
+    environment:
+      API_HOST: backend  # Use the Docker service name to communicate with the backend
+      API_PORT: 5000
+      NODE_ENV: development
+    ports:
+      - "4200:4200"  # map container port 4200 to host port 4200
+    volumes:
+      - ./frontend:/frontend  # bind mount your frontend source code
+    # command: sh -c "npm install && ng serve --host 0.0.0.0"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge

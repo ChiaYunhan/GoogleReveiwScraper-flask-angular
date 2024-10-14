@@ -3,5 +3,8 @@ pandas
 beautifulsoup4
 flask
 flask-cors
+flask-session
 psycopg2-binary 
 SQLAlchemy 
+boto3
+webdriver-manager

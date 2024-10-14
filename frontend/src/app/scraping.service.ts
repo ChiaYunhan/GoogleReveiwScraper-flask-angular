@@ -31,4 +31,9 @@ export class ScrapingService {
       withCredentials: true,
     });
   }
+
+  downloadCsvFromS3(fileKey: string): Observable<{ presigned_url: string }> {
+    const url = `${this.apiUrl}/generate-presigned-url?file_key=${fileKey}`;
+    return this.http.get<{ presigned_url: string }>(url);
+  }
 }

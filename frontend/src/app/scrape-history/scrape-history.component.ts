@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ScrapeResult } from '../scrape-result';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ScrapingService } from '../scraping.service';
 
 @Component({
   selector: 'app-scrape-history',
@@ -13,13 +14,10 @@ import { CommonModule } from '@angular/common';
 export class ScrapeHistoryComponent {
   @Input() scrapeResults!: ScrapeResult[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private scrapingService: ScrapingService) {}
 
   downloadCsvFromS3(fileKey: string) {
-    console.log(fileKey);
-    const apiUrl = `http://localhost:5000/generate-presigned-url?file_key=${fileKey}`;
-
-    this.http.get<{ presigned_url: string }>(apiUrl).subscribe({
+    this.scrapingService.downloadCsvFromS3(fileKey).subscribe({
       next: (response) => {
         const presignedUrl = response.presigned_url;
         const a = document.createElement('a');
