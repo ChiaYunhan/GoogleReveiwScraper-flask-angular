@@ -23,6 +23,7 @@ Additionally, a table on the webpage stores the history of reviews scraped durin
 
 ## Future Improvements:
 1. Add an option to make the automatic upload to S3 optional, thus not having to set up aws account.
-2. Dockerize the application for easier deployment.
+2. Dockerize the application for easier deployment. :heavy_check_mark:
 3. Have scrape history stored to a database such that information persists over to new sessions.
+4. Have it such that S3 bucket names are editable via a form text input.
 
