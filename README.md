@@ -30,4 +30,22 @@ Before running the project, make sure you have the following installed:
 ```bash
 git clone https://github.com/ChiaYunhan/google-maps-scraping-service.git
 cd google-maps-scraping-service
+```
+
+### Create .env file
+```bash
+AWS_ACCESS_KEY=key-from-aws
+AWS_SECRET_KEY=key-from-aws
+AWS_BUCKET=your-bucket-name
+
+FLASK_APP=app
+FLASK_ENV=development
+```
+
+### run
+```bash
 docker-compose up
+```
+
+## Further work
+1. changed that s3 bucket is not hardcoded into .env file, instead a form input of sorts that users can change easily.
