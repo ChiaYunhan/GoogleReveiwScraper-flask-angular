@@ -32,7 +32,7 @@ git clone https://github.com/ChiaYunhan/google-maps-scraping-service.git
 cd google-maps-scraping-service
 ```
 
-### Create .env file
+### Create .env file in root directory
 ```bash
 AWS_ACCESS_KEY=key-from-aws
 AWS_SECRET_KEY=key-from-aws
