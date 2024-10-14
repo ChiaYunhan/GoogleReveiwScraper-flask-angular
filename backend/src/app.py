@@ -4,9 +4,10 @@ from flask_cors import CORS
 from io import StringIO, BytesIO
 from .google_scraper import GoogleScraper
 from datetime import datetime
+from dotenv import load_dotenv, find_dotenv
 import re
-import pandas as pd
 import boto3
+import os
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -20,10 +21,10 @@ app.config["SESSION_FILE_DIR"] = (
 )
 Session(app)
 
-df = pd.read_csv("google_map_scraper_accessKeys.csv")
-
-AWS_ACCESS_KEY = df.loc[0, "Access key ID"]
-AWS_SECRET_KEY = df.loc[0, "Secret access key"]
+load_dotenv(find_dotenv())
+AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
+AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
+AWS_BUCKET = os.environ.get("AWS_BUCKET")
 
 
 def _upload_s3(location_name: str, scraped_at_date: str, scraped_at_time: str):
@@ -42,13 +43,11 @@ def _upload_s3(location_name: str, scraped_at_date: str, scraped_at_time: str):
     # Convert CSV string data into an in-memory file-like object using BytesIO
     csv_buffer = BytesIO(csv_data.encode("utf-8"))
 
-    # Specify the S3 bucket name and object key (filename in the bucket)
-    bucket_name = "aws-etl-news"
     object_key = csv_name  # This will be the file name in S3
 
     try:
         # Upload the file to S3
-        s3_client.upload_fileobj(csv_buffer, bucket_name, object_key)
+        s3_client.upload_fileobj(csv_buffer, AWS_BUCKET, object_key)
         return jsonify(
             {"message": f"File uploaded successfully to S3 as {object_key}."}
         )
@@ -150,7 +149,6 @@ def download_csv():
 @app.route("/generate-presigned-url", methods=["GET"])
 def generate_presigned_url():
     object_key = request.args.get("file_key")
-    print(object_key)
     s3_client = boto3.client(
         "s3",
         aws_access_key_id=AWS_ACCESS_KEY,
@@ -160,7 +158,7 @@ def generate_presigned_url():
     try:
         presigned_url = s3_client.generate_presigned_url(
             "get_object",
-            Params={"Bucket": "aws-etl-news", "Key": object_key},
+            Params={"Bucket": AWS_BUCKET, "Key": object_key},
             ExpiresIn=5,
         )
 
