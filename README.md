@@ -7,7 +7,7 @@
 - **Other Tools**: AWS S3 for storing scraped reviews as CSV files
 
 ## Description:
-This project is a full-stack web application that allows users to scrape Google Maps reviews for any location by inputting the location's Google Maps URL. For example, users can scrape reviews from locations like the [Grand Canyon](https://www.google.com/maps/place/Grand+Canyon+National+Park/@36.0917136,-113.5024596,9z/data=!4m16!1m9!3m8!1s0x873312ae759b4d15:0x1f38a9bec9912029!2sGrand+Canyon+National+Park!8m2!3d36.2678855!4d-112.3535253!9m1!1b1!16zL20vMGNucnI!3m5!1s0x873312ae759b4d15:0x1f38a9bec9912029!8m2!3d36.2678855!4d-112.3535253!16zL20vMGNucnI?entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D), fetching up to 300-400 of the most recent reviews.
+This project is a full-stack web application that allows users to scrape Google Maps reviews for any location by inputting the location's Google Maps URL. For example, users can scrape reviews from locations like the [Grand Canyon](https://www.google.com/maps/place/Grand+Canyon+National+Park/@36.0917136,-113.5024596,9z/data=!4m16!1m9!3m8!1s0x873312ae759b4d15:0x1f38a9bec9912029!2sGrand+Canyon+National+Park!8m2!3d36.2678855!4d-112.3535253!9m1!1b1!16zL20vMGNucnI!3m5!1s0x873312ae759b4d15:0x1f38a9bec9912029!8m2!3d36.2678855!4d-112.3535253!16zL20vMGNucnI?entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D), fetching up to 310 of the most recent reviews.
 
 The application has two primary functionalities:
 - **Download Reviews as CSV**: Users can download the scraped reviews as a CSV file directly from the web interface.
