@@ -10,6 +10,8 @@ import pandas as pd
 import random
 import re
 
+MAX_SCROLL = 30
+
 
 class GoogleScraper:
 
@@ -53,7 +55,7 @@ class GoogleScraper:
         except Exception as e:
             print(f"Error sorting by newest: {e}")
 
-    def _scroll(self, max_scrolls=30):
+    def _scroll(self, max_scrolls=MAX_SCROLL):
         """
         Scroll through the reviews section to load more reviews.
         """
