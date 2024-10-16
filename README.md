@@ -16,6 +16,8 @@ The application has two primary functionalities:
 Additionally, the application also features a session-based history of scraped data that is displayed on the frontend. This history is cleared on page refresh. Users can view past scrapes during their session and download reviews from S3 via presigned URLs.
 
 ![picture of homepage](https://github.com/ChiaYunhan/GoogleReveiwScraper-flask-angular/blob/main/homepage.png?raw=true)
+
+In S3 Bucket after scraping:
 ![picture of stored file in s3 bucket](https://github.com/ChiaYunhan/GoogleReveiwScraper-flask-angular/blob/main/s3_bucket.png?raw=true)
 
 ## Features:
