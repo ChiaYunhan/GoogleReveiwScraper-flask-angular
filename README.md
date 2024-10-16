@@ -25,7 +25,7 @@ Additionally, the application also features a session-based history of scraped d
 - **Session-Based History**: View and track past scrapes during the current session. Links for downloading CSV files via presigned S3 URLs are generated for each scrape.
 
 ## Rate Limiting and IP Blocking:
-To avoid triggering Google’s rate limiting or CAPTCHA-based IP bans, this application enforces a limit of scraping up to 310 reviews per location but can be increased by increasing the MAX_SCROLL in google_scraper.py. While scraping a large number of reviews can result in IP-based restrictions, the limited scope of this app minimizes such risks. However, users should be aware that:
+To avoid triggering Google’s rate limiting or CAPTCHA-based IP bans, this application enforces a limit of scraping up to 310 reviews per location but can be increased by increasing the MAX_SCROLL(1 scroll = 10 reviews) in google_scraper.py. While scraping a large number of reviews can result in IP-based restrictions, the limited scope of this app minimizes such risks. However, users should be aware that:
 - **Rate Limiting**: Google may limit the number of requests per minute, which could slow down the scraping process if too many reviews are requested in quick succession.
 - **IP Blocking**: If too many requests are made from the same IP in a short period, Google could trigger CAPTCHA challenges or temporarily block further requests from that IP. It's recommended to use scraping in moderation and avoid aggressive scraping practices.
 
@@ -72,6 +72,8 @@ ng serve
 1. Access Angular frontend at: [http://localhost:4200](http://localhost:4200)
 2. Enter a Google Maps location URL into the input field, and click "Scrape" to retrieve the reviews. You can download the results as a CSV or have them automatically uploaded to your S3 bucket.
 
+## Current Issues
+1. Inconsistent scraping, sometimes the scraper fully scrapes the MAX_SCROLL but occasionally stops short and returns the wrong number of reviews.
 
 ## Future Improvements
 1. Add an option to make the automatic upload to S3 optional, thus not having to set up aws account.
