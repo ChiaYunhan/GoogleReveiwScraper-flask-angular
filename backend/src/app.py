@@ -159,7 +159,7 @@ def generate_presigned_url():
         presigned_url = s3_client.generate_presigned_url(
             "get_object",
             Params={"Bucket": AWS_BUCKET, "Key": object_key},
-            ExpiresIn=5,
+            ExpiresIn=10,
         )
 
         return jsonify({"presigned_url": presigned_url})
