@@ -19,13 +19,13 @@ Additionally, the application also features a session-based history of scraped d
 ![picture of stored file in s3 bucket](https://github.com/ChiaYunhan/GoogleReveiwScraper-flask-angular/blob/main/s3_bucket.png?raw=true)
 
 ## Features:
-- **Google Review Scraping**: Scrape up to 400 reviews for a given Google Maps location.
+- **Google Review Scraping**: Scrape up to 310 reviews for a given Google Maps location.
 - **CSV Download**: Download the scraped reviews in CSV format directly from the web interface.
 - **AWS S3 Integration**: Automatically upload scraped reviews to an AWS S3 bucket for easy access and storage. (Requires AWS setup).
 - **Session-Based History**: View and track past scrapes during the current session. Links for downloading CSV files via presigned S3 URLs are generated for each scrape.
 
 ## Rate Limiting and IP Blocking:
-To avoid triggering Google’s rate limiting or CAPTCHA-based IP bans, this application enforces a limit of scraping up to 300-400 reviews per location. While scraping a large number of reviews can result in IP-based restrictions, the limited scope of this app minimizes such risks. However, users should be aware that:
+To avoid triggering Google’s rate limiting or CAPTCHA-based IP bans, this application enforces a limit of scraping up to 310 reviews per location but can be increased by increasing the MAX_SCROLL in google_scraper.py. While scraping a large number of reviews can result in IP-based restrictions, the limited scope of this app minimizes such risks. However, users should be aware that:
 - **Rate Limiting**: Google may limit the number of requests per minute, which could slow down the scraping process if too many reviews are requested in quick succession.
 - **IP Blocking**: If too many requests are made from the same IP in a short period, Google could trigger CAPTCHA challenges or temporarily block further requests from that IP. It's recommended to use scraping in moderation and avoid aggressive scraping practices.
 
